@@ -1,7 +1,3 @@
-var string = "1d6+2 2d6-1 3d12 5d100"
-
-console.log(DiceRoller(string));
-
 // takes in the format [numberofdice]d[numberofsides][modifier] eg. 1d6+2 (currently can't do -2)
 function DiceRoller(inputString){
 	var result = "";
