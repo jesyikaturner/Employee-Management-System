@@ -1,7 +1,10 @@
 // takes in the format [numberofdice]d[numberofsides][modifier] eg. 1d6+2 (currently can't do -2)
+
+DiceRoller("1d6+2 1d6 2d100 12d4");
+
 function DiceRoller(inputString){
 	var result = "";
-	var tokens = ['d','+'];
+	var tokens = ['d'];
 	var inputArray = inputString.split(" ");
 	
 	for(var i = 0; i < inputArray.length; i++){
@@ -43,6 +46,18 @@ function calculateTotal(diceResults){
 // format the results - Total (d1 result, d2 result...)modifier.
 function printDiceRoll(parsedString){
 	var numOfDice = parseInt(parsedString[0]);
+	
+	var hms = "";
+	var mod = "";
+	var sign = "";
+	var flag = false;
+	
+	for(var i =0; i < parsedString[2].length; i++){
+		hms += parsedString[2]; // get char at (i)
+	}
+	
+	
+	
 	var howManySides = parseInt(parsedString[1]);
 	if (parsedString[2] != null){
 		var modifier = parseInt(parsedString[2]);
