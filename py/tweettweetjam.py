@@ -19,10 +19,3 @@ while(True):
     if b[y][x]==G:s+=1;R(b,G)
     b[y][x]=X;b[pY][pX]=E;pY,pX=y,x;
   P(b,s)
-
-
-
-
-
-
-
