@@ -7,7 +7,7 @@ public class MultisetTest
     
     public static void main(String[] args) {
      
-        Multiset<String> multiset = new MyLinkedList<String>();
+        Multiset<String> multiset = new MyBST<String>();
         
         multiset.add("robot");
         multiset.add("fortune");
@@ -19,7 +19,11 @@ public class MultisetTest
         multiset.add("macbook");
         multiset.add("fortune");
         multiset.removeOne("fortune");  
-        multiset.removeAll("macbook");  
+        multiset.add("monster");
+        multiset.add("mash");
+        multiset.add("fred");
+        //multiset.removeOne("fred"); 
+        //multiset.removeAll("macbook");  
         outStream.println();
         multiset.print(outStream);
         
