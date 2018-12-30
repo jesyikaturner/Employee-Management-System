@@ -1,3 +1,5 @@
+package model;
+
 public class Employee
 {
     private String id, title, name, role;
@@ -12,27 +14,27 @@ public class Employee
         this.rank = Character.toUpperCase(rank);
     }
     
-    public String getID()
+    public String GetID()
     {
         return id;
     }
     
-    public char getRank()  
+    public char GetRank()  
     {
         return rank;
     }
     
-    public void setTile(String title)
+    public void SetTile(String title)
     {
         this.title = title;
     }
     
-    public void setRole(String role)
+    public void SetRole(String role)
     {
         this.role = role;
     }
     
-    public boolean updateRank(char rank)
+    public boolean UpdateRank(char rank)
     {
         String acceptedRanks = "ABCDE";
         for (int i = 0; i < acceptedRanks.length(); i++)
@@ -48,7 +50,7 @@ public class Employee
         return false;
     }
     
-    public double getSalary()
+    public double GetSalary()
     {
         double salary = 0;
         switch(rank)
@@ -73,13 +75,13 @@ public class Employee
         return salary;
     }
     
-    public String printDetails()
+    public String PrintDetails()
     {
         return String.format("ID: %s, Name: %s %s, Role: %s, Pay: %.2f\n"
-                                 ,id,title,name,role,getSalary());
+                                 ,id,title,name,role,GetSalary());
     }
     
-    public String toString(){
+    public String ToString(){
         return String.format("%s+%s+%s+%s+%c",id,title,name,role,rank);
     }
 }

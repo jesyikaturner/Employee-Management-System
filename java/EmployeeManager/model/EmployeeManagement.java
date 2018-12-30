@@ -1,5 +1,11 @@
+package model;
+
 import java.io.*;
 import java.util.*;
+
+/*
+ * TODO Replace text based controls with GUI. look at dice game code.
+ */ 
 
 public class EmployeeManagement
 {
@@ -79,11 +85,17 @@ public class EmployeeManagement
     {
         //TODO
     }
+    
+    public void addNewEmployee(String id, String title, String name, String role, char rank)
+    {
+        employees.add(new Employee(id,title,name,role,rank));
+    }
+    
     private void displayEmployee()
     {
         for(Employee employee : employees)
         {
-            System.out.printf(employee.printDetails());
+            System.out.printf(employee.PrintDetails());
         }
     }
     
@@ -92,7 +104,7 @@ public class EmployeeManagement
     {
         for(Employee employee : employees)
         {
-            if(employee.getID().equals(id)){
+            if(employee.GetID().equals(id)){
                 return employee;
             }
         }
@@ -109,12 +121,12 @@ public class EmployeeManagement
         //TODO
     }
     
-    private void saveEmployeeArray()
+    public void saveEmployeeArray()
     {
         ArrayList<String> details = new ArrayList<String>();
         for(Employee employee : employees)
         {
-            details.add(employee.toString());
+            details.add(employee.ToString());
         }
         
         saveArrayToFile("employee",".dat",details);
