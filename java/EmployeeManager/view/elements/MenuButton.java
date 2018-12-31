@@ -6,19 +6,24 @@ import java.awt.event.ActionListener;
 
 import view.AppFrame; 
 
-public class CreateEmployeeButton extends JButton implements ActionListener
+public class MenuButton extends JButton implements ActionListener
 {
     private AppFrame app;
+    private String location;
     
-    public CreateEmployeeButton(AppFrame app)
+    public MenuButton(AppFrame app, String text, String location)
     {
         this.app = app;
+        this.location = location;
+        setText(text);
+        
         addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        app.ChangeView("create");
+        app.ChangeView(location);
     }
+    
 }

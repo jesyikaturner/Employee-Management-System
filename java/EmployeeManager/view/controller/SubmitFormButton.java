@@ -45,10 +45,13 @@ public class SubmitFormButton extends JButton implements ActionListener
         }
         
         char rank = data[4].charAt(0);
-        if(em.addNewEmployee(data[0],data[1],data[2],data[3],rank)){
-            System.out.println("Employee created and added to database");
-            em.saveEmployeeArray();
+        
+        if(!em.addNewEmployee(data[0],data[1],data[2],data[3],rank)){
+            System.out.println("Employee couldn't be created");
+            return;
         }
+        System.out.println("Employee created and added to database");
+        em.saveEmployeeArray();
     }
     
 }

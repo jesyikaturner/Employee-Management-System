@@ -11,6 +11,10 @@ import view.MenuPanel;
 public class AppFrame extends JFrame
 {
     private EmployeeManagement em;
+    
+    private MenuPanel menu;
+    private CreateEmployeeForm employeeForm;
+    
     public AppFrame()
     {
         super("Employee Management");
@@ -22,10 +26,13 @@ public class AppFrame extends JFrame
     public void Setup(EmployeeManagement em)
     {
         this.em = em;
-        setLayout(new BorderLayout());
-        add(new CreateEmployeeForm(em),BorderLayout.CENTER);
+        menu = new MenuPanel(this);
+        employeeForm = new CreateEmployeeForm(this,em);
         
-        Refresh();
+        setLayout(new BorderLayout());
+        ChangeView("menu");
+        
+        //Refresh();
     }
     
     public void ChangeView(String viewID)
@@ -33,10 +40,14 @@ public class AppFrame extends JFrame
         switch(viewID)
         {
             case "menu":
-                add(new MenuPanel(),BorderLayout.CENTER);
+                remove(employeeForm);
+                add(menu,BorderLayout.CENTER);
+                Refresh();
                 break;
             case "create":
-                add(new CreateEmployeeForm(em),BorderLayout.CENTER);
+                remove(menu);
+                add(employeeForm,BorderLayout.CENTER);
+                Refresh();
                 break;
                 
             default:

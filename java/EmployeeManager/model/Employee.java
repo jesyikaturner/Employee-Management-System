@@ -19,19 +19,12 @@ public class Employee
         return id;
     }
     
-    public char GetRank()  
-    {
-        return rank;
-    }
-    
-    public void SetTile(String title)
+    public void SetDetails(String title, String name, String role, char rank)
     {
         this.title = title;
-    }
-    
-    public void SetRole(String role)
-    {
+        this.name = name;
         this.role = role;
+        this.rank = Character.toUpperCase(rank);
     }
     
     public boolean UpdateRank(char rank)

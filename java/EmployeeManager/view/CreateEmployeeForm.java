@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import model.EmployeeManagement;
 import view.controller.SubmitFormButton;
+import view.elements.MenuButton;
 
 public class CreateEmployeeForm extends JPanel
 {
@@ -19,7 +20,7 @@ public class CreateEmployeeForm extends JPanel
     private JTextField[] inputs;
     private String[] data;
     
-    public CreateEmployeeForm(EmployeeManagement em)
+    public CreateEmployeeForm(AppFrame app, EmployeeManagement em)
     {
         this.em = em;
         data = new String[size];
@@ -45,6 +46,7 @@ public class CreateEmployeeForm extends JPanel
         
         SubmitFormButton submitButton = new SubmitFormButton(em, this);
         add(submitButton);
+        add(new MenuButton(app, "Back", "menu"));
     }
     
     public String[] GetData()
